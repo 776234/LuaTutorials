@@ -41,7 +41,7 @@ giveMoney(500)
 
 Functions can also return values using the `return` keyword. Consider this example:
 ```lua
--- Defining a function 'divideInHalf'
+-- Defining a function 'divideInHalf' that accepts 'num' as an argument
 local function divideInHalf(num)
     return num / 2
 end
