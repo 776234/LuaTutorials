@@ -43,23 +43,48 @@ In this example, Lua checks the score against multiple conditions and prints the
 Loops in Lua are essential for executing a block of code repeatedly. They provide the necessary control flow to handle various tasks efficiently. Lua offers two primary types of loops: conditional loops and iterative loops. In this tutorial, we'll explore both types to help you understand how to use them effectively in your Lua programs.
 
 ## Conditional Loops: The while Loop
-A conditional loop, commonly known as the while loop, repeatedly executes a block of code as long as a specified condition remains true. Here's the basic structure of a while loop:
+A conditional loop, commonly known as the `while` loop, repeatedly executes a block of code as long as a specified condition remains true. Here's the basic structure of a while loop:
 ```lua
 while condition do
     -- Code to execute repeatedly
+    task.wait()
 end
 ```
 The loop continues to execute as long as the condition remains true. Once the condition becomes false, the loop terminates, and the program proceeds to the next statement.
 
-Here's an example of a while loop that counts from 1 to 5:
+Here's an example of a `while` loop that counts from 1 to 5:
 ```lua
 local count = 1
 while count <= 5 do
-    print(count)
+    -- Add 1 to the count variable
     count = count + 1
+
+    -- Wait 1 second before looping again
+    task.wait(1)
 end
 ```
 In this example, the loop runs until count is no longer less than or equal to 5.
+
+If you would like to stop the execution of a `while` loop forcefully, you may do so using the `break` keyword. Here's how to do that:
+```lua
+local count = 0
+
+-- Putting 'true' here will make this an infinite loop
+while true do
+    if count == 10 then
+        -- If the 'count' variable equals 10 then let's stop the loop with the 'break' keyword
+        break;
+    end
+
+    -- Add 1 to the count variable
+    count = count + 1
+
+    -- Wait 1 second before looping again
+    task.wait(1)
+end
+```
+
+***Note: you MUST include `task.wait()` somewhere in your `while` loop to prevent crashing***
 
 ## Conditional Loops: The repeat-until Loop
 The repeat-until loop is another form of a conditional loop that executes a block of code at least once and then repeats as long as a specified condition remains false. Its structure looks like this:
@@ -74,11 +99,35 @@ Here's an example that illustrates the repeat-until loop:
 ```lua
 local count = 1
 repeat
-    print(count)
+    -- Add 1 to the count variable
     count = count + 1
+
+    -- Wait 1 second before looping again
+    task.wait(1)
 until count > 5
 ```
 In this example, the code block runs once, and then the loop continues until count is greater than 5.
+
+If you would like to stop the execution of a `repeat` loop forcefully, you may do so using the `break` keyword. Here's how to do that:
+```lua
+local count = 0
+
+-- Putting 'true' here will make this an infinite loop
+repeat
+    if count == 10 then
+        -- If the 'count' variable equals 10 then let's stop the loop with the 'break' keyword
+        break;
+    end
+
+    -- Add 1 to the count variable
+    count = count + 1
+
+    -- Wait 1 second before looping again
+    task.wait(1)
+until
+```
+
+***Note: you MUST include `task.wait()` somewhere in your `repeat` loop to prevent crashing***
 
 ## Iterative Loops: The for Loop
 Iterative loops, also known as for loops, are designed for iterating over a sequence of values, such as a range of numbers or elements in a table. The basic structure of a for loop is as follows:
@@ -157,7 +206,7 @@ end
 Here's an example:
 ```lua
 local array = {10, 20, "orange", "blue", true, false}
-for index, value in next, numbers do
+for index, value in next, array do
     print("Element at index " .. index .. " is " .. value)
 end
 ```
