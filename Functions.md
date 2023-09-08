@@ -119,6 +119,7 @@ printNames("Alice", "Bob", "Charlie") -- Output: "Hello, Alice!", "Hello, Bob!",
 printNames("Eve") -- Output: "Hello, Eve!"
 printNames() -- No output because no arguments are provided
 ```
+In this example, the greet function uses VarArgs to accept a variable number of names and greets each person individually. The code demonstrates how VarArgs can make your functions adaptable to various scenarios, providing flexibility in function parameterization.
 
 ## Summary
 With functions, you can modularize your code, making it easier to maintain and reuse, and enabling you to create more versatile and efficient Lua programs.
