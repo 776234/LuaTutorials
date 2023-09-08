@@ -112,7 +112,7 @@ If you would like to stop the execution of a `repeat` loop forcefully, you may d
 ```lua
 local count = 0
 
--- Putting 'true' here will make this an infinite loop
+-- Not assigning a condition here will make this an infinite loop
 repeat
     if count == 10 then
         -- If the 'count' variable equals 10 then let's stop the loop with the 'break' keyword
