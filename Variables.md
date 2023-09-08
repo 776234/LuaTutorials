@@ -20,7 +20,6 @@ local variable = nil
 Now that you have a solid understanding of how to create both global and local variables, let's delve into their effective usage:
 
 When you need to store and manipulate data in your Lua code, you can do so as demonstrated in this example:
-
 ```lua
 -- Storing and manipulating data using variables
 
@@ -78,6 +77,16 @@ print("The score is: "..score)
 -- Attempting to access 'localScore' from outside the scope will result in an error, but you may access the value assigned to 'score'
 ```
 By adopting this approach, you can maintain better control over your variables and reduce potential issues associated with global scope.
+
+You can also create a "multi-variable," which allows you to assign values to multiple variables simultaneously:
+```lua
+-- Assign values to each variable
+local one, two, three = 1, 2, 3
+
+-- Print the result
+print(one, two, three) -- Output: "1 2 3"
+```
+In this example, we've created a "multi-variable." These are especially useful for tasks like unpacking function arguments, making your code more concise and readable.
 
 ## Naming Conventions in Lua
 Naming conventions in programming define how you should structure your variable names for readability and consistency. In Lua, there are several accepted naming conventions to choose from:
